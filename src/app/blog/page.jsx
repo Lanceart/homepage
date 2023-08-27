@@ -3,7 +3,7 @@ import styles from "./page.module.css";
 import Link from "next/link";
 import Image from "next/image";
 async function getData() {
-    const res = await fetch("http://homepage-sand-three.vercel.app/api/posts", {//http:jsonplaceholder.typicode.com/posts
+    const res = await fetch("http://http://localhost:3000/api/posts", {//http:jsonplaceholder.typicode.com/posts
       cache: "no-store",
     });
     // console.log(res);
