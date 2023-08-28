@@ -1,15 +1,17 @@
+'use client';
 import React from "react";
 import styles from "./page.module.css";
 import Link from "next/link";
 import Image from "next/image";
 async function getData() {
-    const res = await fetch("http://http://localhost:3000/api/posts", {//http:jsonplaceholder.typicode.com/posts
+  
+    const res = await fetch(`${process.env.NEXTAUTH_URL}`+"/api/posts", {//http:jsonplaceholder.typicode.com/posts
       cache: "no-store",
     });
     // console.log(res);
-    if (!res.ok) {
-      throw new Error("Failed to fetch data");
-    }
+    // if (!res.ok) {
+    //   throw new Error("Failed to fetch data");
+    // }
   
     return res.json();
   }
@@ -39,7 +41,7 @@ const Blog = async() => {
         </Link>
       ))}
     </div>
-    )
-}
+    );
+};
 
 export default Blog;
