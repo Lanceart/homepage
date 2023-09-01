@@ -2,9 +2,10 @@ import React from "react";
 import styles from "./page.module.css";
 import Image from "next/image";
 import { notFound } from "next/navigation";
-
+import { headers } from "next/headers";
 async function getData(id) {
-  const res = await fetch(`${process.env.NEXTAUTH_URL}`+`/api/posts/${id}`, {
+  const host = headers().get("host");
+  const res = await fetch(`http://${host}/api/posts/${id}`, {
     cache: "no-store",
   });
 

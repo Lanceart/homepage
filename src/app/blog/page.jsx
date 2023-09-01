@@ -1,11 +1,13 @@
-'use client';
+
+import { headers } from "next/headers";
 import React from "react";
 import styles from "./page.module.css";
 import Link from "next/link";
 import Image from "next/image";
 async function getData() {
-  
-    const res = await fetch(`${process.env.NEXTAUTH_URL}`+"/api/posts", {//http:jsonplaceholder.typicode.com/posts
+    const host = headers().get("host");
+    console.log(host);
+    const res = await fetch(`http://${host}`+"/api/posts", {//http:jsonplaceholder.typicode.com/posts
       cache: "no-store",
     });
     // console.log(res);
