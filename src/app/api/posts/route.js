@@ -35,3 +35,25 @@ export const POST = async (request) => {
     return new NextResponse("Database Error", { status: 500 });
   }
 };
+
+
+export const PUT = async(request)=>{
+  const { id } = await request.params;
+  console.log("jasd" + id);
+  const updatedData = await request.body.json;
+  console.log("jasd" + updatedData);
+  try {
+    await connect();
+    
+    await Post.findByIdAndUpdate(id,updatedData,{
+      new: true,  // This option returns the modified document
+      runValidators: true  // This option applies model's validation on update
+    });
+    if (!updatedPost) {
+      return new NextResponse("Post not found", { status: 404 });
+    }
+    return new NextResponse(JSON.stringify(updatedPost), { status: 200 });
+  } catch (err) {
+    return new NextResponse("Database Error", { status: 500 });
+  }
+};

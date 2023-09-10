@@ -3,6 +3,7 @@ import styles from "./page.module.css";
 import Image from "next/image";
 import { notFound } from "next/navigation";
 import { headers } from "next/headers";
+import {marked}  from "marked";
 async function getData(id) {
   const host = headers().get("host");
   const res = await fetch(`http://${host}/api/posts/${id}`, {
@@ -57,9 +58,11 @@ const BlogPost = async ({ params }) => {
         </div>
       </div>
       <div className={styles.content}>
-        <p className={styles.text}>
-         {data.content}
-        </p>
+        {/* <p className={styles.text}> */}
+          <div dangerouslySetInnerHTML={{__html: marked(data.content)}} />
+
+         {/* {data.content} */}
+        
       </div>
     </div>
   );

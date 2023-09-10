@@ -28,6 +28,11 @@
     cursor: pointer;
     color: red;
   }
+
+  .update{
+    cursor: pointer;
+    color: #53c28b;
+  }
   
   .new {
     flex: 1;

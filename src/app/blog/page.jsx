@@ -6,7 +6,7 @@ import Link from "next/link";
 import Image from "next/image";
 async function getData() {
     const host = headers().get("host");
-    console.log(host);
+    // console.log(host);
     const res = await fetch(`http://${host}`+"/api/posts", {//http:jsonplaceholder.typicode.com/posts
       cache: "no-store",
     });
