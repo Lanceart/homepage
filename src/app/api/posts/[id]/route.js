@@ -46,12 +46,13 @@ export const PUT = async(req,{params})=>{
 
 
   // console.log("Received data:", body);
-  const updatedData = await body.json;
+  // const updatedData = await body.json();
   // console.log(request.headers);
+  // console.log("what",updatedData)
   try {
     await connect();
     
-    const updatePost = await Post.findByIdAndUpdate(id,updatedData);
+    const updatePost = await Post.findByIdAndUpdate(id,body);
     if (!updatePost) {
       return new NextResponse("Post not found", { status: 404 });
     }

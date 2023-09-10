@@ -163,9 +163,9 @@ const Dashboard = ()=>{
             }),
             
           });
-          console.log('Fetch Response:', response);
+          // console.log('Fetch Response:', response);
           const responseData = await response.json();
-          console.log('Response Data:', responseData);
+          // console.log('Response Data:', responseData);
           if (response.ok) {
             mutate();
             e.target.reset();
@@ -223,7 +223,7 @@ const Dashboard = ()=>{
                   value={formData.content}
                   onChange={handleChange}
                 ></textarea>
-                <input type="text" name ="p_id" placeholder="p_id" className={styles.input} value={formData.p_id} onChange={handleChange}/>
+                <input type="text" name ="p_id" placeholder="p_id" className={styles.input} value={formData.p_id} onChange={handleChange} hidden/>
 
                 <button className={styles.button}>Update</button>
               </form>
