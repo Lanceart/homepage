@@ -196,7 +196,7 @@ const Dashboard = ()=>{
                     =
                   </span>
                   
-                  <YourComponent id={post._id} />
+                  {/* <YourComponent id={post._id} /> */}
                   <span
                     className={styles.delete}
                     onClick={() => handleDelete(post._id)}
