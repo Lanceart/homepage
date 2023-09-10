@@ -6,7 +6,7 @@ import { useRouter } from "next/navigation";
 import Image from "next/image";
 import { useSession } from "next-auth/react";
 
-import YourComponent from "@/components/UpdateForm/updateform";
+// import YourComponent from "@/components/UpdateForm/updateform";
 
 // const [data,setData] = useState([]);
 // const [err,setErr] = useState(false);
