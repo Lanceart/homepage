@@ -65,10 +65,11 @@ const Login = () => {
       >
         Login with Google
       </button> */}
-      <span className={styles.or}>- OR -</span>
-      <Link className={styles.link} href="/dashboard/register">
+      {/* <span className={styles.or}>- OR -</span> */}
+      {/* <Link className={styles.link} href="/dashboard/register">
         Create new account
-      </Link>
+      </Link> */}
+      {/* !!!the above, because only me used, comment at sep10th,2023 */}
       {/* <button
         onClick={() => {
           signIn("github");

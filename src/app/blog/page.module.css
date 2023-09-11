@@ -20,3 +20,8 @@
   font-size: 18px;
   color: #999;
 }
+
+.articleSeparator {
+  border-top: 0.0px solid #999;
+  margin: 20px 0;
+}

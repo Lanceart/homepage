@@ -5,9 +5,11 @@ import { Inter, Roboto, Poppins } from 'next/font/google'
 import { ThemeProvider } from '@/context/ThemeContext'
 // import {SessionProvider} from "next-auth/react";
 import AuthProvider from '@/components/AuthProvider/AuthProvider'
+
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata = {
+  
   title: 'Cyan\'s homepage',
   description: 'This is the desc',
 }

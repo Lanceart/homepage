@@ -20,12 +20,12 @@ a {
 }
 
 .light {
-  background-color: white;
-  color: #111;
+  background-color: eeebe5;
+  color: #252525;
 }
 
 .dark {
-  background-color: #111;
+  background-color: #252525;
   color: #bbb;
 }
 

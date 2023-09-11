@@ -12,24 +12,25 @@ const links = [
     },
     {
         id:2,
-        title: "Portfolio",
-        url:"/portfolio"
+        title: "Blogs",
+        url:"/blog"
     },
     {
         id:3,
-        title: "Blog",
-        url:"/blog"
+        title: "Side-Projects",
+        url:"/portfolio"
+        
     },
     {
         id:4,
         title: "About",
         url:"/about"
     },
-    {
-        id:5,
-        title: "Contact",
-        url:"/contact"
-    },
+    // {
+    //     id:5,
+    //     title: "Contact",
+    //     url:"/contact"
+    // },
     {
         id:6,
         title: "Dashboard",
@@ -42,7 +43,7 @@ const Navbar = () => {
     return(
         <div className={styles.container}>
             <Link href="/" className={styles.logo}>
-                lamamia
+                Cyan's Homepage
             </Link>
             <div className={styles.links}>
                 <DarkModeToggle />
@@ -51,12 +52,15 @@ const Navbar = () => {
                         {link.title}
                     </Link>
                 ))}
+
                 {session.status === "authenticated" &&
                     <button onClick={signOut} className={styles.logout}>Logout</button>
                 }
+                
             </div>
-
+            
         </div>
+        
         );
 };
 
