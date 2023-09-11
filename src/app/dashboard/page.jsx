@@ -208,7 +208,7 @@ const Dashboard = ()=>{
         </div>
         
           {showform && (
-            <div>
+            
               <form className={styles.new} onSubmit={handleUpdate}>
                 <h1>Update The Post</h1>
                 <input type="text" name="title" placeholder="Title" className={styles.input} value={formData.title} onChange={handleChange}/>
@@ -229,15 +229,10 @@ const Dashboard = ()=>{
               </form>
 
 
-              <h3>Form Data:</h3>
-              <p><strong>Title:</strong> </p>
-              <p><strong>Description:</strong> {formData.desc}</p>
-              <p><strong>Image URL:</strong> </p>
-              <p><strong>Content:</strong> {formData.content}</p>
-            </div>
+              
           )}
 
-        
+{!!!showform && (
         <form className={styles.new} onSubmit={handleSubmit}>
           <h1>Add New Post</h1>
           <input type="text" placeholder="Title" className={styles.input} />
@@ -251,7 +246,7 @@ const Dashboard = ()=>{
           ></textarea>
           <button className={styles.button}>Send</button>
         </form>
-        
+)}
       </div>
     }
 };

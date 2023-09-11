@@ -42,7 +42,7 @@ export const PUT = async(req,{params})=>{
   const buffer = Buffer.concat(chunks);
   const body = JSON.parse(buffer.toString());
 
-  console.log("Received data:", body);
+  // console.log("Received data:", body);
 
 
   // console.log("Received data:", body);
