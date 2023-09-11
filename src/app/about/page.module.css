@@ -21,9 +21,32 @@
   color: white;
 }
 
+.imgTitle {
+  font-size:xxx-large;
+}
+.imgMe {
+  position: absolute;
+  bottom: -50px;
+  right: 35px;
+  background-color: #53c28b;
+  padding: 5px;
+  color: white;
+}
+
 .textContainer {
   display: flex;
   gap: 100px;
+}
+.text_color{
+  color: #53c28b;
+}
+
+.text_color_golden{
+  color: goldenrod;
+}
+
+.text_color_orange{
+  color: orange;
 }
 
 .item {

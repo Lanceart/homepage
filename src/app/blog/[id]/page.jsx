@@ -4,6 +4,7 @@ import Image from "next/image";
 import { notFound } from "next/navigation";
 import { headers } from "next/headers";
 import {marked}  from "marked";
+import avator_me from "public/ico.png"
 async function getData(id) {
   const host = headers().get("host");
   const res = await fetch(`http://${host}/api/posts/${id}`, {
@@ -39,13 +40,13 @@ const BlogPost = async ({ params }) => {
           </p>
           <div className={styles.author}>
             <Image
-              src={data.img}
+              src={avator_me}
               alt=""
               width={40}
               height={40}
               className={styles.avatar}
             />
-            <span className={styles.username}>{data.username}</span>
+            <span className={styles.username}>Linqing</span>
           </div>
         </div>
         <div className={styles.imageContainer}>

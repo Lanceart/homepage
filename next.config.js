@@ -8,6 +8,7 @@ const nextConfig = {
         domains:[
         "images.pexels.com",
         "example.com",
+        "res.cloudinary.com",
         ]
     },
 }
