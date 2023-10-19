@@ -17,7 +17,7 @@ const links = [
     },
     {
         id:3,
-        title: "Side-Projects",
+        title: "Categories",
         url:"/portfolio"
         
     },

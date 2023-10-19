@@ -61,9 +61,7 @@ const BlogPost = async ({ params }) => {
       <div className={styles.content}>
         {/* <p className={styles.text}> */}
           <div dangerouslySetInnerHTML={{__html: marked(data.content)}} />
-
          {/* {data.content} */}
-        
       </div>
     </div>
   );

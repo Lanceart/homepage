@@ -61,25 +61,3 @@ export const PUT = async(req,{params})=>{
     return new NextResponse("Database Error", { status: 500 });
   }
 };
-
-
-// export default async function handler(req, res) {
-//   if (req.method === "PUT") {
-//     const { id } = req.query;
-//     const updatedData = req.body; // body data is automatically parsed by Next.js
-
-//     console.log("Received data:", updatedData);
-
-//     try {
-//       // Database update logic here
-//       const updatedPost = {}; // Assume you've updated the post and this object contains the updated data
-
-//       res.status(200).json(updatedPost);
-//     } catch (err) {
-//       console.error("Database error:", err);
-//       res.status(500).json({ message: "Internal Server Error" });
-//     }
-//   } else {
-//     res.status(405).json({ message: "Method not allowed" });
-//   }
-// }

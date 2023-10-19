@@ -6,32 +6,6 @@ import { useRouter } from "next/navigation";
 import Image from "next/image";
 import { useSession } from "next-auth/react";
 
-// import YourComponent from "@/components/UpdateForm/updateform";
-
-// const [data,setData] = useState([]);
-// const [err,setErr] = useState(false);
-// const [isLoading, setIsLoading] = useState(false);
-//   useEffect(() => {
-//     const getData = async () => {
-//       setIsLoading(true);
-//       const res = await fetch("https://jsonplaceholder.typicode.com/posts", {
-//         cache: "no-store",
-//       });
-
-//       if (!res.ok) {
-//         setErr(true);
-//       }
-
-//       const data = await res.json()
-
-//       setData(data);
-//       setIsLoading(false);
-//     };
-//     getData()
-//   }, []);
-
-
-
 const Dashboard = ()=>{
     const session  = useSession();
     const router = useRouter();
@@ -42,8 +16,10 @@ const Dashboard = ()=>{
       title: '',
       desc: '',
       img: '',
+      tag: '',
       content: '',
       p_id: '',
+      
     });
     
 
@@ -66,8 +42,9 @@ const Dashboard = ()=>{
         const title = e.target[0].value;
         const desc = e.target[1].value;
         const img = e.target[2].value;
-        const content = e.target[3].value;
-    
+        const tag = e.target[3].value;
+        const content = e.target[4].value;
+        
         try {
           await fetch("/api/posts", {
             method: "POST",
@@ -75,6 +52,7 @@ const Dashboard = ()=>{
               title,
               desc,
               img,
+              tag,
               content,
               username: session.data.user.name,
             }),
@@ -104,8 +82,11 @@ const Dashboard = ()=>{
             title : post.title,
             desc : post.desc,
             img : post.img,
+            tag : post.tag,
             content : post.content,
+            
             p_id: post._id,
+            
           });
           setshowform(!showform);
           
@@ -137,8 +118,11 @@ const Dashboard = ()=>{
         const title = e.target[0].value;
         const desc = e.target[1].value;
         const img = e.target[2].value;
-        const content = e.target[3].value;
-        const p_id = e.target[4].value;
+        const tag = e.target[3].value;
+        const content = e.target[4].value;
+        
+        const p_id = e.target[5].value;
+        
         console.log(title);
         try {
           // console.log("Sending the following data:", {
@@ -157,7 +141,9 @@ const Dashboard = ()=>{
               title,
               desc,
               img,
+              tag,
               content,
+              
               username: session.data.user.name,
               
             }),
@@ -214,6 +200,7 @@ const Dashboard = ()=>{
                 <input type="text" name="title" placeholder="Title" className={styles.input} value={formData.title} onChange={handleChange}/>
                 <input type="text" name="desc" placeholder="Desc" className={styles.input} value={formData.desc} onChange={handleChange}/>
                 <input type="text" name ="img" placeholder="Image" className={styles.input} value={formData.img} onChange={handleChange}/>
+                <input type="text" name ="tag" placeholder="Tag" className={styles.input} value={formData.tag} onChange={handleChange}/>
                 <textarea
                   name="content"
                   placeholder="Content"
@@ -238,6 +225,7 @@ const Dashboard = ()=>{
           <input type="text" placeholder="Title" className={styles.input} />
           <input type="text" placeholder="Desc" className={styles.input} />
           <input type="text" placeholder="Image" className={styles.input} />
+          <input type="text" placeholder="Tag" className={styles.input} />
           <textarea
             placeholder="Content"
             className={styles.textArea}
