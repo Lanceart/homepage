@@ -3,6 +3,10 @@
   }
   
   .container {
+    padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
   }
   
   .selectTitle {
@@ -10,6 +14,11 @@
   }
   
   .items {
+
+  flex-direction: row;
+  flex-wrap: wrap; /* 如果空间不足，允许项目换行 */
+  justify-content: center; /* 项目居中对齐 */
+  
     display: flex;
     gap: 50px;
   }
@@ -30,7 +39,7 @@
     background: url("/websites.jpg");
   }
   .item:nth-child(3) {
-    background: url("/apps.jpg");
+    background: url("/poem.png");
   }
   
   .title {
