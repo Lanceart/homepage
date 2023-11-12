@@ -39,7 +39,15 @@
     background: url("/websites.jpg");
   }
   .item:nth-child(3) {
+    background: url("/cg.png");
+    background-position:  center right -70px
+  }
+  .item:nth-child(3):hover {
+    background-position: center left 0; /* 鼠标悬停时移动背景图像的位置 */
+  }
+  .item:nth-child(4) {
     background: url("/poem.png");
+    
   }
   
   .title {

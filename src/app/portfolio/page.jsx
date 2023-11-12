@@ -11,21 +11,18 @@ const Portfolio = () => {
           <span className={styles.title}>Life</span>
         </Link>
         <Link href="/portfolio/cs" className={styles.item}>
-          <span className={styles.title}>Development</span>
+          <span className={styles.title}>
+            <div>Software</div>
+            <div>Development</div></span>
+        </Link>
+        <Link href="/portfolio/graphics" className={styles.item}>
+          <span className={styles.title}><div>Computer</div><div>Graphicss</div></span>
+          
         </Link>
         <Link href="/portfolio/poetry" className={styles.item}>
           <span className={styles.title}>Poetry</span>
         </Link>
-        {/* <Link href="/portfolio/application" className={styles.item}>
-          <span className={styles.title}>Application</span>
-        </Link>
-        <Link href="/portfolio/application" className={styles.item}>
-          <span className={styles.title}>Application</span>
-        </Link>
-        <Link href="/portfolio/application" className={styles.item}>
-          <span className={styles.title}>Application</span>
-        </Link>
-         */}
+        
       </div>
     </div>
   );
