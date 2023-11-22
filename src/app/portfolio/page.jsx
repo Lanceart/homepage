@@ -2,9 +2,9 @@ import React from 'react';
 import styles from "./page.module.css";
 
 import Button from "@/components/Button/Button";
+// import { headers } from "next/headers";
 
-
-import { items } from "@/../public/portfolio/data.js";
+// import { items } from "@/../public/portfolio/data.js";
 import { notFound } from "next/navigation";
 import SlidingImages from '@/components/Sliding/Slidingwindow';
 export const metadata = {
@@ -12,17 +12,23 @@ export const metadata = {
   description: "This is Contact Page",
 };
 
-const getData = (cat) => {
-    const data = items[cat];
+async function getData() {
+  // const host = headers().get("host");
+  // console.log(host);
+  const res = await fetch("https://homepage-related.s3.us-west-1.amazonaws.com/data.json", {//http:jsonplaceholder.typicode.com/posts
+    cache: "no-store",
+  });
+  // console.log("shit",res);
+  if (!res.ok) {
+    throw new Error("Failed to fetch data");
+  }
 
-    if (data) {
-        return data;
-}
-
-return notFound();
+  return res.json();
 };
+
 const Category = async({ params }) => {
-    const data = items.applications;//await getData(params.category);
+    const data = await getData();
+    // const data = rawdata.application;
     // console.log(data);
     return (
       <div className={styles.container}>

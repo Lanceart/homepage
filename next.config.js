@@ -9,6 +9,7 @@ const nextConfig = {
         "images.pexels.com",
         "example.com",
         "res.cloudinary.com",
+        "homepage-related.s3.us-west-1.amazonaws.com",
         ]
     },
 }

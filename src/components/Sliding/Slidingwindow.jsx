@@ -24,6 +24,7 @@ const SlidingImages = ({ data }) => {
       <button className={styles.leftbutton} onClick={goToPrevious}>{"<"}</button>
       <div>
       <div className={styles.imgContainer}>
+        
             <Image
                 className={styles.img}
                 fill={true}
