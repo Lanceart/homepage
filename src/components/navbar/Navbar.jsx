@@ -17,25 +17,36 @@ const links = [
     },
     {
         id:3,
-        title: "Categories",
+        title: "Portfolio",
         url:"/portfolio"
         
     },
     {
         id:4,
+        title: "Categories",
+        url:"/category"
+        
+    },
+    {
+        id:5,
         title: "About",
         url:"/about"
+    },
+    {
+        id:6,
+        title: "Dashboard",
+        url:"/dashboard"
     },
     // {
     //     id:5,
     //     title: "Contact",
     //     url:"/contact"
     // },
-    {
-        id:6,
-        title: "Dashboard",
-        url:"/dashboard"
-    },  
+    // {
+    //     id:6,
+    //     title: "Dashboard",
+    //     url:"/dashboard"
+    // },  
 ];
 const Navbar = () => {
     const session = useSession();

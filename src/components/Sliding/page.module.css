@@ -1,0 +1,61 @@
+
+.catTitle {
+  color: #53c28b;
+}
+
+.item{
+  display: flex;
+  gap: 50px;
+  margin-top: 50px;
+  margin-bottom: 100px;
+}
+
+.item:nth-child(2n+1){
+  flex-direction: row-reverse;
+}
+
+
+
+.img{
+  object-fit: cover;
+}
+
+.content{
+  flex:1;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  justify-content: center;
+}
+
+.title{
+  font-size: 50px;
+}
+
+.desc{
+  font-size: 20px;
+}
+
+.leftbutton{
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(255, 255, 255, 0.5);
+  border: none;
+  cursor: pointer;
+  left: 10px;
+  z-index: 10;
+  font-size: 24px; /* 增加字体大小 */
+}
+
+.rightbutton{
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(255, 255, 255, 0.5);
+  border: none;
+  cursor: pointer;
+  right: 10px;
+  z-index: 10;
+  font-size: 24px; /* 增加字体大小 */
+}

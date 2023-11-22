@@ -1,64 +1,43 @@
-.mainTitle {
-    font-size: 100px;
-  }
-  
-  .container {
-    padding: 20px;
+.container {
+}
+.catTitle {
+  color: #53c28b;
+}
+
+.item{
+  display: flex;
+  gap: 50px;
+  margin-top: 50px;
+  margin-bottom: 100px;
+}
+
+.item:nth-child(2n+1){
+  flex-direction: row-reverse;
+}
+
+.imgContainer{
+  flex:3;
+  height: 500px;
+  position: relative;
+}
+
+.img{
+  object-fit: cover;
+}
+
+
+.content{
+  flex:2;
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
-  }
-  
-  .selectTitle {
-    margin: 20px 0px;
-  }
-  
-  .items {
+  gap: 20px;
+  justify-content: center;
+}
 
-  flex-direction: row;
-  flex-wrap: wrap; /* 如果空间不足，允许项目换行 */
-  justify-content: center; /* 项目居中对齐 */
-  
-    display: flex;
-    gap: 50px;
-  }
-  
-  .item {
-    border: 5px solid #bbb;
-    border-radius: 5px;
-    width: 300px;
-    height: 400px;
-    position: relative;
-    background-size: cover !important;
-  }
-  
-  .item:nth-child(1) {
-    background: url("/illustration.png");
-  }
-  .item:nth-child(2) {
-    background: url("/websites.jpg");
-  }
-  .item:nth-child(3) {
-    background: url("/cg.png");
-    background-position:  center right -70px
-  }
-  .item:nth-child(3):hover {
-    background-position: center left 0; /* 鼠标悬停时移动背景图像的位置 */
-  }
-  .item:nth-child(4) {
-    background: url("/poem.png");
-    
-  }
-  
-  .title {
-    position: absolute;
-    right: 10px;
-    bottom: 10px;
-    font-size: 40px;
-    font-weight: bold;
-  }
-  
-  .item:hover .title {
-    color: #53c28b;
-  }
-  
+.title{
+  font-size: 50px;
+}
+
+.desc{
+  font-size: 20px;
+}
