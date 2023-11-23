@@ -25,9 +25,21 @@ async function getData() {
 
   return res.json();
 };
-
+async function getImages(data) {
+  
+  return <div className='hidden'>
+    {data.map((item) => (
+      item.image.forEach(function(element) {
+        <img src={element}></img>
+   
+    })
+      
+    ))}
+  </div> ;
+};
 const Category = async({ params }) => {
     const data = await getData();
+    getImages(data);
     // const data = rawdata.application;
     // console.log(data);
     return (
