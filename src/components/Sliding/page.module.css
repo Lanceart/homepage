@@ -45,7 +45,7 @@
   cursor: pointer;
   left: 10px;
   z-index: 10;
-  font-size: 24px; /* 增加字体大小 */
+  font-size: 30px; /* 增加字体大小 */
 }
 
 .rightbutton{
@@ -57,5 +57,5 @@
   cursor: pointer;
   right: 10px;
   z-index: 10;
-  font-size: 24px; /* 增加字体大小 */
+  font-size: 30px; /* 增加字体大小 */
 }

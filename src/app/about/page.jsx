@@ -29,7 +29,7 @@ developing applications in a collaborative team environment and strong analy tic
                         Hello, I&apos;m <b className={styles.text_color}>Linqing</b>, or you can call me <b className={styles.text_color}>Cyan</b>. I am a graduate student in Computer Science interested in 💻 <b className={styles.text_color_golden}>Software Development</b> 🌐, 
                         and 🖼️ <b className={styles.text_color_golden}>Computer Graphics </b>🎨.   🌟 Recently, I&apos;ve been incredibly passionate about discovering career opportunities related to these fields! 💼🔍. Feel free to contact me at <b className={styles.text_color_orange}>lli260@ucr.edu</b>
                     </p>
-                    <Button url="/contact" text="Contact" />
+                    <Button url="/portfolio" text="See my works" />
                 </div>
 
             </div>
