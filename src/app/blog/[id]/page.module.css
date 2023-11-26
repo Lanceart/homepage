@@ -50,3 +50,30 @@
   color: #999;
   text-align: justify;
 }
+
+@media screen and (max-width: 600px) {
+  .container {
+    padding: 10px 10px;
+  }
+  .content {
+    margin-top: 50px;
+    font-size: 15px;
+    font-weight: 300;
+    color: #999;
+    text-align: justify;
+  }
+  .top {
+    display: flex;
+    flex-direction: column;
+  }
+  .imageContainer {
+    margin: 20px 0;
+    width: 100%; /* Adjust the width as needed */
+    min-height: 200px; /* This makes the height adjust to the content */
+  }
+  .image {
+    width: 100%;
+    height: auto;
+    object-fit: cover; /* This will cover the container, adjust as needed */
+  }
+}

@@ -1,6 +1,6 @@
 'use client'
 import Link from "next/link";
-import React from "react";
+import React, { useState } from "react";
 import styles from "./page.module.css"
 import DarkModeToggle from "../DarkModeToggle/DarkModeToggle";
 import { signOut, useSession } from "next-auth/react";
@@ -50,14 +50,24 @@ const links = [
 ];
 const Navbar = () => {
     const session = useSession();
+    const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+    const toggleMenu = () => {
+        setIsMenuOpen(!isMenuOpen);
+    };
 
     return(
         <div className={styles.container}>
             <Link href="/" className={styles.logo}>
                 Cyan&apos;s Homepage
             </Link>
-            <div className={styles.links}>
+            <button onClick={toggleMenu} className={styles.menuButton}>
+                 &nbsp;Menu&nbsp; 
+            </button>
+            <div className={isMenuOpen ? styles.links : styles.linksHidden}>
+
                 <DarkModeToggle />
+                
                 {links.map((link)=>(
                     <Link key = {link.id} href={link.url} className={styles.link}>
                         {link.title}

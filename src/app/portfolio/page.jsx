@@ -44,7 +44,7 @@ const Category = async({ params }) => {
     // console.log(data);
     return (
       <div className={styles.container}>
-        <h1 className={styles.title}>Not Just Another Portfolio: </h1><h1>A Collection of My Favored Creations which I Cherished and Polished with Love.</h1>
+        <h1 className={styles.title}>Not Just Another Portfolio: </h1><h1 className={styles.subtitle}>A Collection of My Favored Creations which I Cherished and Polished with Love.</h1>
         {/* <h1 className={styles.catTitle}>{params.category}</h1> */}
         
         {data.map((item) => (
