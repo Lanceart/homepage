@@ -4,6 +4,8 @@ import Image from "next/image";
 import { notFound } from "next/navigation";
 import { headers } from "next/headers";
 import {marked}  from "marked";
+import 'katex/dist/katex.min.css';
+import katex from "katex";
 import avator_me from "public/ico.png"
 async function getData(id) {
   const host = headers().get("host");
@@ -30,6 +32,29 @@ export async function generateMetadata({ params }) {
 
 const BlogPost = async ({ params }) => {
   const data = await getData(params.id);
+
+  // 创建一个自定义渲染器
+  const renderer = new marked.Renderer();
+
+  
+  // 重写renderer的代码块渲染方法来支持数学公式
+  renderer.code = function(code, language) {
+    
+    if (language === "math-c") {
+      // 使用katex来渲染数学公式
+      return `<div align="center">${katex.renderToString(code)}</div>`;
+    }
+    if (language === "math") {
+      // 使用katex来渲染数学公式
+      return `<div>${katex.renderToString(code)}</div>`;
+    }
+    // 对于其他语言，使用默认的代码块渲染
+    return `<pre><code>${code}</code></pre>`;
+  };
+
+  // 使用自定义渲染器
+  marked.setOptions({ renderer });
+
   return (
     <div className={styles.container}>
       <div className={styles.top}>
