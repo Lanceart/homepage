@@ -1,6 +1,6 @@
 'use client'
 import Link from "next/link";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import styles from "./page.module.css"
 import DarkModeToggle from "../DarkModeToggle/DarkModeToggle";
 import { signOut, useSession } from "next-auth/react";
@@ -55,7 +55,20 @@ const Navbar = () => {
     const toggleMenu = () => {
         setIsMenuOpen(!isMenuOpen);
     };
+    useEffect(() => {
+        // Function to check the window width and update the menu state
+        const handleResize = () => {
+            const isMonitor = window.innerWidth > 600;
+            setIsMenuOpen(!isMonitor);
+        };
 
+        // Call the function on component mount and add event listener for window resize
+        handleResize();
+        window.addEventListener('resize', handleResize);
+
+        // Cleanup function to remove the event listener when the component unmounts
+        return () => window.removeEventListener('resize', handleResize);
+    }, []); 
     return(
         <div className={styles.container}>
             <Link href="/" className={styles.logo}>

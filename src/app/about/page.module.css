@@ -62,3 +62,24 @@
   font-weight: 300;
   text-align: justify;
 }
+@media screen and (max-width: 600px) {
+  .imgMe  img{
+    width: 40%; /* or another value */
+    height: auto; /* maintains aspect ratio */
+  }
+  .imgMe{
+  position: absolute;
+  bottom: -70px;
+  right: -95px;
+  background-color: #53c28b;
+  padding: 5px;
+  color: white;
+  }
+  .textContainer {
+    display: flex;
+    flex-direction: column-reverse;
+    gap: 10px;
+  }
+  
+  
+}

@@ -2,6 +2,7 @@ import React from "react";
 import { headers } from "next/headers";
 import styles from "./page.module.css";
 import Button from "@/components/Button/Button";
+import Link from "next/link";
 import Image from "next/image";
 import { items } from "./data.js";
 import { notFound } from "next/navigation";
@@ -35,25 +36,28 @@ const getData = (cat) => {
 const Category = async({ params }) => {
   const data = await getDatas(params.category);
   return (
-    <div className={styles.container}>
-      <h1 className={styles.catTitle}>{params.category}</h1>
-
+    <div className={styles.mainContainer}>
       {data.map((item) => (
-        <div className={styles.item} key={item.id}>
+        <>
+        <Link href={`/blog/${item._id}`} className={styles.container} key={item.id}>
+          <div className={styles.imageContainer}>
+            <Image
+              src={item.img}
+              alt=""
+              width={400}
+              height={250}
+              className={styles.image}
+            />
+          </div>
           <div className={styles.content}>
             <h1 className={styles.title}>{item.title}</h1>
             <p className={styles.desc}>{item.desc}</p>
-            <Button text="See More" url={`/blog/${item._id}`} />
           </div>
-          <div className={styles.imgContainer}>
-            <Image
-              className={styles.img}
-              fill={true}
-              src={item.img}
-              alt=""
-            />
-          </div>
-        </div>
+          
+          
+        </Link>
+        <hr className={styles.articleSeparator} />
+        </>
       ))}
     </div>
   );

@@ -1,7 +1,12 @@
 .mainTitle {
     font-size: 100px;
   }
-  
+  @media screen and (max-width: 600px) {
+    .mainTitle {
+      font-size: 50px;
+    }
+
+  }
   .container {
     padding: 20px;
   display: flex;
