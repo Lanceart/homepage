@@ -10,7 +10,8 @@ const nextConfig = {
         "example.com",
         "res.cloudinary.com",
         "homepage-related.s3.us-west-1.amazonaws.com",
-        "image-store-api.onrender.com"
+        "image-store-api.onrender.com",
+        "gallery.cyanli.com"
         ]
     },
 }
