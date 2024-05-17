@@ -18,16 +18,16 @@ const About = () => {
                 <div className={styles.item}>
                     <h1 className={styles.title}>Skills</h1>
                     <p>
-                    Software development and system programming. Proficient in Java and C++. Quickly adapt to new emerging Front end
-frameworks like ReactJS, VueJS, Back end framework like ExpressJS, NodeJS, and AWS related cloud services. Experience
-developing applications in a collaborative team environment and strong analy tical and problem solving skills.
+                    Specializing in advanced backend development, with extensive expertise in Java and Node.js. Highly proficient in integrating and leveraging emerging technological frameworks, notably AWS cloud services and related DevOps methodologies. Demonstrated leadership in driving the development of robust applications within a collaborative team environment. Possesses strong analytical and problem-solving abilities.
                     </p>
                 </div>
                 <div className={styles.item}>
                     <h1 className={styles.title}>Who am I</h1>
                     <p>
-                        Hello, I&apos;m <b className={styles.text_color}>Linqing</b>, or you can call me <b className={styles.text_color}>Cyan</b>. I am a graduate student in Computer Science interested in 💻 <b className={styles.text_color_golden}>Software Development</b> 🌐, 
-                        and 🖼️ <b className={styles.text_color_golden}>Computer Graphics </b>🎨.   🌟 Recently, I&apos;ve been incredibly passionate about discovering career opportunities related to these fields! 💼🔍. Feel free to contact me at <b className={styles.text_color_orange}>lli260@ucr.edu</b>
+                        Hello, my name is <b className={styles.text_color}>Linqing</b>. I am a 💻 <b className={styles.text_color_golden}>Software Engineer</b> 🌐, 
+                        In addition to my primary career, I have a fervent interest in 🖼️ <b className={styles.text_color_golden}>Computer Graphics </b>🎨, an art form that interprets the world through digital canvases.
+                        I also cherish writing poetry, drawing inspiration from the works of my favorite poet, <b className={styles.text_color}>Pablo Neruda</b>. 🌟 
+                        My passion has steered me towards exploring exciting career opportunities in Software Development💼🔍. Feel free to contact me at <b className={styles.text_color_orange}>lancellq@gmail.com</b>
                     </p>
                     <Button url="/portfolio" text="See my works" />
                 </div>
