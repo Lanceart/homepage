@@ -6,6 +6,10 @@ import { useRouter } from "next/navigation";
 import Image from "next/image";
 import { useSession } from "next-auth/react";
 
+import {marked}  from "marked";
+import 'katex/dist/katex.min.css';
+import katex from "katex";
+
 const Dashboard = ()=>{
     const session  = useSession();
     const router = useRouter();
@@ -112,6 +116,10 @@ const Dashboard = ()=>{
       };
 
 
+
+      const handlePreviewMarkdown = () => {
+        return { __html: marked(formData.content) };
+    };
       const handleUpdate = async(e)=> {
      
         e.preventDefault();
@@ -125,13 +133,6 @@ const Dashboard = ()=>{
         
         console.log(title);
         try {
-          // console.log("Sending the following data:", {
-          //   title,
-          //   desc,
-          //   img,
-          //   content,
-          //   username: session.data.user.name,
-          // });
           const response = await fetch(`/api/posts/${p_id}`, {
             method: "PUT",
             headers: {
@@ -171,16 +172,19 @@ const Dashboard = ()=>{
             ? "loading"
             : data?.map((post) => (
                 <div className={styles.post} key={post._id}>
+                  
                   <div className={styles.imgContainer}>
                     <Image src={post.img} alt="" width={200} height={100} />
                   </div>
-                  <h2 className={styles.postTitle}>{post.title}</h2>
+
                   <span
                     className={styles.update}
                     onClick={() => handleEdit(post)}
                   >
                     =
                   </span>
+                  <h2 className={styles.postTitle}>{post.title}</h2>
+                  
                   
                   {/* <YourComponent id={post._id} /> */}
                   <span
@@ -192,7 +196,8 @@ const Dashboard = ()=>{
                 </div>
               ))}
         </div>
-        
+        <div  dangerouslySetInnerHTML={handlePreviewMarkdown()} />
+ 
           {showform && (
             
               <form className={styles.new} onSubmit={handleUpdate}>
@@ -233,8 +238,9 @@ const Dashboard = ()=>{
             rows="10"
           ></textarea>
           <button className={styles.button}>Send</button>
-        </form>
+        </form>      
 )}
+           
       </div>
     }
 };
