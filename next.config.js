@@ -12,7 +12,8 @@ const nextConfig = {
         "homepage-related.s3.us-west-1.amazonaws.com",
         "image-store-api.onrender.com",
         "gallery.cyanli.com",
-        "gallery-api-o5vw.onrender.com"
+        "gallery-api-o5vw.onrender.com",
+        "7cepehhnii.execute-api.us-west-1.amazonaws.com"
         ]
     },
 }
