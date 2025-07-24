@@ -21,12 +21,11 @@ const Dashboard = ()=>{
       desc: '',
       img: '',
       tag: '',
+      externalArticle: false,
       content: '',
       p_id: '',
       
     });
-    
-
     
     const fetcher = (...args) => fetch(...args).then(res => res.json())
     const {data,mutate, error,isLoading} = useSWR(
@@ -47,7 +46,8 @@ const Dashboard = ()=>{
         const desc = e.target[1].value;
         const img = e.target[2].value;
         const tag = e.target[3].value;
-        const content = e.target[4].value;
+        const externalArticle = e.target[4].checked;
+        const content = e.target[5].value;
         
         try {
           await fetch("/api/posts", {
@@ -57,6 +57,7 @@ const Dashboard = ()=>{
               desc,
               img,
               tag,
+              externalArticle,
               content,
               username: session.data.user.name,
             }),
@@ -80,13 +81,14 @@ const Dashboard = ()=>{
       };
 
       const handleEdit = async (post) => {
-        // console.log(post._id);
+        // console.log(post);
         try{
           setFormData({
             title : post.title,
             desc : post.desc,
             img : post.img,
             tag : post.tag,
+            externalArticle: post.externalArticle,
             content : post.content,
             
             p_id: post._id,
@@ -102,36 +104,33 @@ const Dashboard = ()=>{
         // console.log('Editing post:', post);
         // Populate form fields or open a modal here.
       };
+
       const handleChange = (e) => {
-
-        // const newFormData = { ...formData, title: e.target.value };
-        // setFormData(newFormData);
         const name = e.target.name;
-        const value = e.target.value;
+        const value = e.target.type === "checkbox" ? e.target.checked : e.target.value;
 
-        setFormData({
-          ...formData,
+        setFormData((prev) => ({
+          ...prev,
           [name]: value,
-        });
+        }));
       };
-
 
 
       const handlePreviewMarkdown = () => {
         return { __html: marked(formData.content) };
     };
       const handleUpdate = async(e)=> {
-     
+        
         e.preventDefault();
         const title = e.target[0].value;
         const desc = e.target[1].value;
         const img = e.target[2].value;
         const tag = e.target[3].value;
-        const content = e.target[4].value;
+        const externalArticle = e.target[4].checked;
+        const content = e.target[5].value;
+        const p_id = e.target[6].value;
         
-        const p_id = e.target[5].value;
-        
-        console.log(title);
+        // console.log(title);
         try {
           const response = await fetch(`/api/posts/${p_id}`, {
             method: "PUT",
@@ -144,7 +143,7 @@ const Dashboard = ()=>{
               img,
               tag,
               content,
-              
+              externalArticle,
               username: session.data.user.name,
               
             }),
@@ -164,6 +163,24 @@ const Dashboard = ()=>{
           console.log(err);
         }
       };
+
+      const renderedHTML = `
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8" />
+  <style>
+    body { font-family: sans-serif; padding: 10px; }
+    pre { background: #f4f4f4; padding: 10px; }
+    code { font-family: monospace; }
+  </style>
+</head>
+<body>
+  ${marked(formData.content || "")}
+</body>
+</html>
+`;
+
     // const [data,setData] = useState([])
     if(session.status === 'authenticated'){
         return <div className={styles.container}>
@@ -196,8 +213,17 @@ const Dashboard = ()=>{
                 </div>
               ))}
         </div>
-        <div  dangerouslySetInnerHTML={handlePreviewMarkdown()} />
- 
+        {/* <div  dangerouslySetInnerHTML={handlePreviewMarkdown()} /> */}
+      <iframe
+  style={{
+    width: "100%",
+    height: "90vh", // 占 80% 视口高度
+    border: "1px solid #ccc"
+  }}
+  srcDoc={renderedHTML}
+/>
+
+      
           {showform && (
             
               <form className={styles.new} onSubmit={handleUpdate}>
@@ -206,6 +232,7 @@ const Dashboard = ()=>{
                 <input type="text" name="desc" placeholder="Desc" className={styles.input} value={formData.desc} onChange={handleChange}/>
                 <input type="text" name ="img" placeholder="Image" className={styles.input} value={formData.img} onChange={handleChange}/>
                 <input type="text" name ="tag" placeholder="Tag" className={styles.input} value={formData.tag} onChange={handleChange}/>
+                <input type="checkbox" name="externalArticle" checked={formData.externalArticle} onChange={handleChange}/>
                 <textarea
                   name="content"
                   placeholder="Content"
@@ -219,9 +246,6 @@ const Dashboard = ()=>{
 
                 <button className={styles.button}>Update</button>
               </form>
-
-
-              
           )}
 
 {!!!showform && (
@@ -231,6 +255,7 @@ const Dashboard = ()=>{
           <input type="text" placeholder="Desc" className={styles.input} />
           <input type="text" placeholder="Image" className={styles.input} />
           <input type="text" placeholder="Tag" className={styles.input} />
+          <input type="checkbox" name="externalArticle" />
           <textarea
             placeholder="Content"
             className={styles.textArea}

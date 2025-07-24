@@ -29,6 +29,10 @@ const postSchema = new Schema(
       type: String,
       required: true,
     },
+    externalArticle:{
+      type: Boolean,
+      default: false
+    }
   },
   { timestamps: true }
 );

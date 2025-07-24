@@ -41,14 +41,7 @@ export const PUT = async(req,{params})=>{
   }
   const buffer = Buffer.concat(chunks);
   const body = JSON.parse(buffer.toString());
-
-  // console.log("Received data:", body);
-
-
-  // console.log("Received data:", body);
-  // const updatedData = await body.json();
-  // console.log(request.headers);
-  // console.log("what",updatedData)
+  
   try {
     await connect();
     
