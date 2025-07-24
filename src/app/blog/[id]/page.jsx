@@ -32,10 +32,10 @@ export async function generateMetadata({ params }) {
 
 const BlogPost = async ({ params }) => {
   const data = await getData(params.id);
-  if (data.externalArticle && data.content) {
+  // if (data.externalArticle && data.content) {
     
-    return redirect(data.content);
-  }
+  //   return redirect(data.content);
+  // }
   // 创建一个自定义渲染器
   const renderer = new marked.Renderer();
 
