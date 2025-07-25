@@ -7,8 +7,8 @@ export default function Home() {
   return (
     <div className={styles.container}>
       <div className={styles.item}>
-        <h1 className={styles.title}>tomorrow we will run faster, stretch out our arms farther ... </h1>
-        <p className={styles.desc}>Code in My Veins, Nature as My Muse, Art as My Love Language, and Poetry for Soulful Laughter.</p>
+        <h1 className={styles.title}>Nature as My Muse, Notes as My Love Language, and Poetry for Soulful Laughter. </h1>
+        <p className={styles.desc}>Hi! I am 霖青 (Linqing), but you can just call me Cyan — inspired by 青, that lovely color between 🟦 and 🟩. Curious? Click the button below to learn more about me!</p>
         <Button url="/about" text="ABOUT &nbsp;   ME ~" />
       </div>
       <div className={styles.item}>

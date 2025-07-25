@@ -18,7 +18,7 @@ const About = () => {
                 <div className={styles.item}>
                     <h1 className={styles.title}>Skills</h1>
                     <p>
-                    Specializing in advanced backend development, with extensive expertise in Java and Node.js. Highly proficient in integrating and leveraging emerging technological frameworks, notably AWS cloud services and related DevOps methodologies. Demonstrated leadership in driving the development of robust applications within a collaborative team environment. Possesses strong analytical and problem-solving abilities.
+                    Specializing in advanced backend development, with experince in Java, C++ and Node.js. Highly proficient in integrating AWS cloud services and related DevOps methodologies. Demonstrated leadership in driving the development of robust applications within a collaborative team environment. Possesses strong analytical and problem-solving abilities.
                     </p>
                 </div>
                 <div className={styles.item}>
