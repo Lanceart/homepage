@@ -11,7 +11,7 @@ export default function BlogClient({ data }) {
 
   useEffect(() => {
     // 模拟分批渲染，避免初始化卡顿
-    let batchSize = 20;
+    let batchSize = 5;
     let index = 0;
 
     function loadBatch() {
