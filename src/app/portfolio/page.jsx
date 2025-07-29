@@ -13,8 +13,6 @@ export const metadata = {
 };
 
 async function getData() {
-  // const host = headers().get("host");
-  // console.log(host);
   const res = await fetch("https://archive.cyanli.com/portfolio/data.json", {//http:jsonplaceholder.typicode.com/posts
     cache: "force-cache",
   });

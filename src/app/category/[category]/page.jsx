@@ -8,7 +8,8 @@ import { items } from "./data.js";
 import { notFound } from "next/navigation";
 
 async function getDatas(category) {
-  const host = headers().get("host");
+  const headersList = await headers();
+  const host = headersList.get("host");
   // console.log(host);
   const res = await fetch(`http://${host}`+`/api/catelog?tag=${category}`, {//http:jsonplaceholder.typicode.com/posts
     cache: "no-store",

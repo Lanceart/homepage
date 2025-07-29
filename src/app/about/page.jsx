@@ -12,7 +12,7 @@ const About = () => {
                 <h1  className={styles.imgTitle}>Linqing Li</h1>
                 <h2 className={styles.imgDesc}>Full-stack software engineer</h2> 
             </div>
-            <div className={styles.imgMe}><Image src={Me} height={230} /></div>
+            <div className={styles.imgMe}><Image src={Me} alt="Me" height={230} /></div>
             </div>
             <div className={styles.textContainer}>
                 <div className={styles.item}>

@@ -6,9 +6,9 @@ import { headers } from "next/headers";
 import {marked}  from "marked";
 import 'katex/dist/katex.min.css';
 import katex from "katex";
-import avator_me from "public/ico.png"
 async function getData(id) {
-  const host = headers().get("host");
+  const headersList = await headers();
+  const host = headersList.get("host");
   const res = await fetch(`http://${host}/api/posts/${id}`, {
     cache: "no-store",
   });
@@ -23,7 +23,8 @@ async function getData(id) {
 
 export async function generateMetadata({ params }) {
 
-  const post = await getData(params.id)
+  const { id } = await params;
+  const post = await getData(id)
   return {
     title: post.title,
     description: post.desc,
@@ -31,7 +32,8 @@ export async function generateMetadata({ params }) {
 }
 
 const BlogPost = async ({ params }) => {
-  const data = await getData(params.id);
+  const { id } = await params;
+  const data = await getData(id)
   // if (data.externalArticle && data.content) {
     
   //   return redirect(data.content);
@@ -68,7 +70,7 @@ const BlogPost = async ({ params }) => {
           </p>
           <div className={styles.author}>
             <Image
-              src={avator_me}
+              src="/ico.png"
               alt=""
               width={40}
               height={40}

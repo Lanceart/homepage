@@ -5,7 +5,8 @@ import styles from "./page.module.css";
 import Link from "next/link";
 import Image from "next/image";
 async function getData() {
-    const host = headers().get("host");
+    const headersList = await headers();
+    const host = headersList.get("host");
     // console.log(host);
     const res = await fetch(`http://${host}`+"/api/catelog?tag=test", {//http:jsonplaceholder.typicode.com/posts
       cache: "no-store",

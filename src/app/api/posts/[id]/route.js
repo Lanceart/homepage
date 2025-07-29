@@ -4,7 +4,7 @@ import Post from "@/models/Post";
 import { headers } from "next/headers";
 
 export const GET = async (request, { params }) => {
-  const { id } = params;
+  const { id } = await params;
 
   try {
     await connect();
@@ -18,7 +18,7 @@ export const GET = async (request, { params }) => {
 };
 
 export const DELETE = async (request, { params }) => {
-  const { id } = params;
+  const { id } = await params;
 
   try {
     await connect();
@@ -34,7 +34,7 @@ export const DELETE = async (request, { params }) => {
 export const PUT = async(req,{params})=>{
   // console.log("Request Params:", params);
   // console.log(req.body);
-  const { id } = params;
+  const { id } = await params;
   const chunks = [];
   for await (const chunk of req.body) {
     chunks.push(chunk);
