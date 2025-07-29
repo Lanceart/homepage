@@ -11,16 +11,22 @@ export default function BlogClient({ data }) {
 
   useEffect(() => {
     // 模拟分批渲染，避免初始化卡顿
-    let batchSize = 5;
+    let batchSize = 8;
     let index = 0;
 
     function loadBatch() {
-      setVisibleData(prev => [...prev, ...data.slice(index, index + batchSize)]);
-      index += batchSize;
-      if (index < data.length) {
-        setTimeout(loadBatch, 50); // 每 50ms 加载下一批
+    setVisibleData(prev => {
+      const newArr = [...prev];
+      for (let i = index; i < index + batchSize && i < data.length; i++) {
+        newArr[i] = data[i];
       }
+      return newArr;
+    });
+    index += batchSize;
+    if (index < data.length) {
+      requestAnimationFrame(loadBatch);
     }
+  }
     loadBatch();
   }, [data]);
 
