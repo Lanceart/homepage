@@ -6,14 +6,9 @@ import Link from "next/link";
 import Image from "next/image";
 async function getData() {
     const host = headers().get("host");
-    // console.log(host);
-    const res = await fetch(`http://${host}`+"/api/posts", {//http:jsonplaceholder.typicode.com/posts
-      cache: "no-store",
+    const res = await fetch(`http://${host}`+"/api/posts", {
+      cache: "force-cache",
     });
-    // console.log(res);
-    // if (!res.ok) {
-    //   throw new Error("Failed to fetch data");
-    // }
   
     return res.json();
   }
@@ -22,7 +17,6 @@ async function getData() {
 const Blog = async() => {
     
     const data  = await getData();
-    // console.log(data);
     return(
         <div className={styles.mainContainer}>
       {data.map((item) => (

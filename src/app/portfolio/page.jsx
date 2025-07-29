@@ -15,8 +15,8 @@ export const metadata = {
 async function getData() {
   // const host = headers().get("host");
   // console.log(host);
-  const res = await fetch("https://homepage-related.s3.us-west-1.amazonaws.com/data.json", {//http:jsonplaceholder.typicode.com/posts
-    cache: "no-store",
+  const res = await fetch("https://archive.cyanli.com/portfolio/data.json", {//http:jsonplaceholder.typicode.com/posts
+    cache: "force-cache",
   });
   // console.log("shit",res);
   if (!res.ok) {
